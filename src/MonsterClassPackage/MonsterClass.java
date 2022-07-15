@@ -1,6 +1,8 @@
 package MonsterClassPackage;
 
 import CharacterClassPackage.Character.AttackType;
+import CharacterClassPackage.CharacterClass;
+
 
 public abstract class MonsterClass implements IMonster {
     private int health;
@@ -72,8 +74,8 @@ public abstract class MonsterClass implements IMonster {
     }
 
     @Override
-    public void attack() {
-
+    public void attackMonster(CharacterClass[] character, int playerId) {
+        character[playerId].healthLoss(this.attackAmount);
     }
 
     @Override
@@ -82,9 +84,10 @@ public abstract class MonsterClass implements IMonster {
     }
 
     @Override
-    public void lossHealth(int amount) {
-        setHealth(this.health - amount);
+    public void healthLoss(int amount) {
+        this.health -= amount;
     }
+
 
     @Override
     public void infoMonster() {

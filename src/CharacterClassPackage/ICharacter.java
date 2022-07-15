@@ -1,15 +1,14 @@
 package CharacterClassPackage;
 
+import Dungeon.Dungeon;
+import MonsterClassPackage.MonsterClass;
+
 public interface ICharacter {
-    void attack();
+    void attack(MonsterClass[] monsters, int monsterId);
 
     void healthRecovery(int amount);
 
-    void lossHealth(int amount);
-
-    void manaRecovery(int amount);
-
-    void lossMana(int amount);
+    void healthLoss(int amount);
 
     void levelUp();
 

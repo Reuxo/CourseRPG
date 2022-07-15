@@ -1,6 +1,9 @@
 package Dungeon;
 
 import CharacterClassPackage.CharacterClass;
+import MonsterClassPackage.MonsterClass;
+
+import java.util.Scanner;
 
 public class Party {
     private CharacterClass[] partyMembers;
@@ -24,7 +27,6 @@ public class Party {
 
     public Party(CharacterClass... members) {
         partyMembers = new CharacterClass[members.length];
-        this.partyMembers = partyMembers;
         for (int i = 0; i < partyMembers.length; i++) {
             partyMembers[i] = members[i];
         }
@@ -43,6 +45,7 @@ public class Party {
             System.out.println("Вы не можете войти в подъземелье");
         }
     }
+
 
     public void infoParty() {
         for (CharacterClass partyMembers : partyMembers) {

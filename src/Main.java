@@ -4,17 +4,27 @@ import CharacterClassPackage.Character.Priest;
 import CharacterClassPackage.Character.Warrior;
 import Dungeon.Dungeon;
 import Dungeon.Party;
-import MonsterClassPackage.DarkElf;
-import MonsterClassPackage.Orc;
-import MonsterClassPackage.Troll;
+import MonsterClassPackage.Monster.DarkElf;
+import MonsterClassPackage.Monster.Orc;
+import MonsterClassPackage.Monster.Troll;
+import MonsterClassPackage.MonsterClass;
 
 public class Main {
+
     public static void main(String[] args) {
         Party party = new Party(new Warrior("Воин"), new Priest("Жрец"),
                 new FrostMage("Маг льда"), new Hunter("Охотник"));
-        party.infoParty();
-        Dungeon dark_forest = new Dungeon(new Orc("Орк"), new DarkElf("Темный Эльф"), new Troll("Троль"));
-        dark_forest.infoDungeon();
-        party.runDungeon(party, dark_forest);
+        MonsterClass[] monsterParty = {new Orc("Орк"), new DarkElf("Темный Эльф"), new Troll("Троль")};
+        Dungeon dark_forest = new Dungeon(party, monsterParty);
+
+
+        // party.infoParty();
+
+        //dark_forest.infoDungeon();
+        // party.runDungeon(party, dark_forest);
+        // dark_forest.partyAttack();
+        dark_forest.monsterAttack();
+
+
     }
 }

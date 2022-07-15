@@ -1,11 +1,14 @@
 package MonsterClassPackage;
 
+import CharacterClassPackage.CharacterClass;
+
 public interface IMonster {
-    void attack();
+    void attackMonster(CharacterClass[] character, int playerId);
 
     void healthRecovery(int amount);
 
-    void lossHealth(int amount);
+    void healthLoss(int amount);
+
 
     void infoMonster();
 }

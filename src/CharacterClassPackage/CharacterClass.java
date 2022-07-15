@@ -1,17 +1,17 @@
 package CharacterClassPackage;
 
 import CharacterClassPackage.Character.AttackType;
+import Dungeon.Dungeon;
+import MonsterClassPackage.MonsterClass;
 
 public abstract class CharacterClass implements ICharacter {
 
     private int health;
-    private int mana;
     private int level;
     private int attackAmount;
     private AttackType attackType;
     private String name;
     private int maxHealth;
-    private int maxMana;
 
     public int getHealth() {
         return health;
@@ -24,20 +24,6 @@ public abstract class CharacterClass implements ICharacter {
             this.health = this.maxHealth;
         } else {
             this.health = health;
-        }
-    }
-
-    public int getMana() {
-        return mana;
-    }
-
-    public void setMana(int mana) {
-        if (mana < 0) {
-            this.mana = 0;
-        } else if (mana > this.maxMana) {
-            this.mana = this.maxMana;
-        } else {
-            this.mana = mana;
         }
     }
 
@@ -88,17 +74,10 @@ public abstract class CharacterClass implements ICharacter {
         this.maxHealth = maxHealth;
     }
 
-    public int getMaxMana() {
-        return maxMana;
-    }
-
-    public void setMaxMana(int maxMana) {
-        this.maxMana = maxMana;
-    }
-
     @Override
-    public void attack() {
-
+    public void attack(MonsterClass[] monsters, int monsterId) {
+        monsters[monsterId].healthLoss(this.attackAmount);
+        System.out.println(monsters[monsterId].getName() + " " + monsters[monsterId].getHealth());
     }
 
     @Override
@@ -107,19 +86,10 @@ public abstract class CharacterClass implements ICharacter {
     }
 
     @Override
-    public void lossHealth(int amount) {
+    public void healthLoss(int amount) {
         setHealth(this.health - amount);
     }
 
-    @Override
-    public void manaRecovery(int amount) {
-        setMana(this.mana + amount);
-    }
-
-    @Override
-    public void lossMana(int amount) {
-        setMana(this.mana - amount);
-    }
 
     @Override
     public void levelUp() {
@@ -128,8 +98,8 @@ public abstract class CharacterClass implements ICharacter {
 
     @Override
     public void chInfo() {
-        System.out.println("Имя: " + this.name + "\n HP: " + this.health + "\n MP: " + this.mana
-                + "\n Уровень персонажа: " + this.level);
+        System.out.println("Имя: " + this.name + "\n HP: " + this.health +
+                "\n Уровень персонажа: " + this.level);
 
     }
 }

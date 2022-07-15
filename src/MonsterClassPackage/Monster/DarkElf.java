@@ -1,8 +1,9 @@
-package MonsterClassPackage;
+package MonsterClassPackage.Monster;
 
 import CharacterClassPackage.Character.AttackType;
+import MonsterClassPackage.MonsterClass;
 
-public class DarkElf extends MonsterClass{
+public class DarkElf extends MonsterClass {
 
     public DarkElf(String name) {
         this.setLevel(1);

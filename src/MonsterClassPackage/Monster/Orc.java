@@ -1,10 +1,11 @@
-package MonsterClassPackage;
+package MonsterClassPackage.Monster;
 
 import CharacterClassPackage.Character.AttackType;
+import MonsterClassPackage.MonsterClass;
 
-public class Troll extends MonsterClass{
+public class Orc extends MonsterClass {
 
-    public Troll(String name) {
+    public Orc(String name) {
         this.setLevel(1);
         this.setMaxHealth(200);
         this.setHealth(200);
