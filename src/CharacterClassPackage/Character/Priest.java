@@ -9,6 +9,6 @@ public class Priest extends CharacterClass {
         this.setHealth(100);
         this.setName(name);
         this.setAttackType(AttackType.MAGICAL_HEAL);
-        this.setAttackAmount(5);
+        this.setAttackAmount(20);
     }
 }

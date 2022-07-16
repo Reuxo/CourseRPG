@@ -9,7 +9,7 @@ public class Warrior extends CharacterClass {
         this.setHealth(200);
         this.setName(name);
         this.setAttackType(AttackType.PHYSICAL);
-        this.setAttackAmount(10);
+        this.setAttackAmount(30);
 
 
     }

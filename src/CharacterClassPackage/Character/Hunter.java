@@ -9,6 +9,6 @@ public class Hunter extends CharacterClass {
         this.setHealth(150);
         this.setName(name);
         this.setAttackType(AttackType.PHYSICAL_RANGED);
-        this.setAttackAmount(12);
+        this.setAttackAmount(20);
     }
 }

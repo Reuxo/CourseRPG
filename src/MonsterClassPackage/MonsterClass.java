@@ -11,6 +11,7 @@ public abstract class MonsterClass implements IMonster {
     private AttackType attackType;
     private String name;
     private int maxHealth;
+    boolean isDead = false;
 
     public int getHealth() {
         return health;
@@ -73,6 +74,14 @@ public abstract class MonsterClass implements IMonster {
         this.maxHealth = maxHealth;
     }
 
+    public boolean isDead() {
+        return isDead;
+    }
+
+    public void setDead(boolean dead) {
+        isDead = dead;
+    }
+
     @Override
     public void attackMonster(CharacterClass[] character, int playerId) {
         character[playerId].healthLoss(this.attackAmount);
@@ -86,6 +95,9 @@ public abstract class MonsterClass implements IMonster {
     @Override
     public void healthLoss(int amount) {
         this.health -= amount;
+        if(this.health <= 0) {
+            isDead = true;
+        }
     }
 
 

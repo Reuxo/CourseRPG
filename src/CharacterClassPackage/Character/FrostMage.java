@@ -9,6 +9,6 @@ public class FrostMage extends CharacterClass {
         this.setHealth(120);
         this.setName(name);
         this.setAttackType(AttackType.FROST_MAGICAL);
-        this.setAttackAmount(20);
+        this.setAttackAmount(30);
     }
 }
