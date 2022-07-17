@@ -106,7 +106,11 @@ public class Dungeon implements IDungeon {
         if (health()[0] > health()[1]) {
             System.out.println("Вы проиграли");
         } else {
-            System.out.println("Вы прошли подземелье");
+            for (int i = 0; i< party.getPartyMembers().length; i++){
+                party.getPartyMembers()[i].levelUp();
+                System.out.println("Ваши персонаж " + party.getPartyMembers()[i].getName() + " получили уровень + 1");
+            }
+            System.out.println("Вы успешно прошли подземелье !!!");
         }
     }
 }

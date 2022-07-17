@@ -102,7 +102,9 @@ public abstract class CharacterClass implements ICharacter {
 
     @Override
     public void levelUp() {
-
+        this.level += 1;
+        this.maxHealth += 20;
+        this.attackAmount += 20;
     }
 
     @Override
