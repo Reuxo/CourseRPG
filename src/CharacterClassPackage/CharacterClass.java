@@ -1,7 +1,6 @@
 package CharacterClassPackage;
 
 import CharacterClassPackage.Character.AttackType;
-import Dungeon.Dungeon;
 import MonsterClassPackage.MonsterClass;
 
 public abstract class CharacterClass implements ICharacter {
@@ -12,7 +11,7 @@ public abstract class CharacterClass implements ICharacter {
     private AttackType attackType;
     private String name;
     private int maxHealth;
-    boolean isDeath = false;
+    boolean isDied = false;
 
     public int getHealth() {
         return health;
@@ -75,12 +74,12 @@ public abstract class CharacterClass implements ICharacter {
         this.maxHealth = maxHealth;
     }
 
-    public boolean isDeath() {
-        return isDeath;
+    public boolean isDied() {
+        return isDied;
     }
 
-    public void setDeath(boolean death) {
-        isDeath = death;
+    public void setDied(boolean died) {
+        isDied = died;
     }
 
     @Override
@@ -96,7 +95,10 @@ public abstract class CharacterClass implements ICharacter {
 
     @Override
     public void healthLoss(int amount) {
-        setHealth(this.health - amount);
+        this.health -= amount;
+        if(this.health <= 0) {
+            isDied = true;
+        }
     }
 
 

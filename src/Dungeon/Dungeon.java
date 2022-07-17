@@ -54,10 +54,10 @@ public class Dungeon implements IDungeon {
             if (health()[0] <= 0) {
                 return;
             }
-            if (!party.getPartyMembers()[i].isDeath()) {
+            if (!party.getPartyMembers()[i].isDied()) {
                 String str = "";
                 for (int j = 0; j < monstersParty.length; j++) {
-                    if (!monstersParty[j].isDead()) {
+                    if (!monstersParty[j].isDied()) {
                         str = str.concat(monstersParty[j].getName() + " - " + j + ". ");
                     }
                 }
@@ -78,7 +78,7 @@ public class Dungeon implements IDungeon {
             if (health()[1] <= 0) {
                 return;
             }
-            if (!monstersParty[i].isDead()) {
+            if (!monstersParty[i].isDied()) {
                 int character = (int) (Math.random() * party.getPartyMembers().length);
                 monstersParty[i].attackMonster(party.getPartyMembers(), character);
                 System.out.println("Атакует : " + monstersParty[i].getName() + " -> Персонажа : " + party.getPartyMembers()[character].getName()
@@ -99,18 +99,20 @@ public class Dungeon implements IDungeon {
     }
 
     public void fightDungeon(Dungeon dungeon, Party party) {
-        while (health()[0] > 0 && health()[1] > 0) {
-            dungeon.partyAttack();
-            dungeon.monsterAttack();
-        }
-        if (health()[0] > health()[1]) {
-            System.out.println("Вы проиграли");
-        } else {
-            for (int i = 0; i< party.getPartyMembers().length; i++){
-                party.getPartyMembers()[i].levelUp();
-                System.out.println("Ваши персонаж " + party.getPartyMembers()[i].getName() + " получили уровень + 1");
+        if (isOpened) {
+            while (health()[0] > 0 && health()[1] > 0) {
+                dungeon.partyAttack();
+                dungeon.monsterAttack();
             }
-            System.out.println("Вы успешно прошли подземелье !!!");
+            if (health()[0] > health()[1] && health()[1] <= 0) {
+                System.out.println("Вы проиграли");
+            } else {
+                for (int i = 0; i < party.getPartyMembers().length; i++) {
+                    party.getPartyMembers()[i].levelUp();
+                    System.out.println("Ваши персонаж " + party.getPartyMembers()[i].getName() + " получили уровень + 1");
+                }
+                System.out.println("Вы успешно прошли подземелье !!!");
+            }
         }
     }
 }

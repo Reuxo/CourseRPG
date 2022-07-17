@@ -11,6 +11,6 @@ public class DarkElf extends MonsterClass {
         this.setHealth(150);
         this.setName(name);
         this.setAttackType(AttackType.PHYSICAL_RANGED);
-        this.setAttackAmount(15);
+        this.setAttackAmount(20);
     }
 }
