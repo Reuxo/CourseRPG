@@ -22,8 +22,6 @@ public class Main {
 
        // dark_forest.infoDungeon();
        //  party.runDungeon(party, dark_forest);
-        // dark_forest.partyAttack();
-       // dark_forest.monsterAttack();
         dark_forest.fightDungeon(dark_forest, party);
 
     }

@@ -54,19 +54,21 @@ public class Dungeon implements IDungeon {
             if (health()[0] <= 0) {
                 return;
             }
-            String str = "";
-            for (int j = 0; j < monstersParty.length; j++) {
-                if (!monstersParty[j].isDead()) {
-                    str = str.concat(monstersParty[j].getName() + " - " + j + ". ");
+            if (!party.getPartyMembers()[i].isDeath()) {
+                String str = "";
+                for (int j = 0; j < monstersParty.length; j++) {
+                    if (!monstersParty[j].isDead()) {
+                        str = str.concat(monstersParty[j].getName() + " - " + j + ". ");
+                    }
                 }
-            }
-            System.out.print("Выбирите цель атаки для " + party.getPartyMembers()[i].getName() + " : " + str);
-            monster = Integer.parseInt(scanner.nextLine());
-            if (monster > -1 && monster < monstersParty.length) {
-                party.getPartyMembers()[i].attack(monstersParty, monster);
-            } else {
-                System.out.println("Выберите число от 0 до " + (monstersParty.length - 1));
-                i--;
+                System.out.print("Выбирите цель атаки для " + party.getPartyMembers()[i].getName() + " : " + str + " : ");
+                monster = Integer.parseInt(scanner.nextLine());
+                if (monster > -1 && monster < monstersParty.length) {
+                    party.getPartyMembers()[i].attack(monstersParty, monster);
+                } else {
+                    System.out.println("Выберите число от 0 до " + (monstersParty.length - 1));
+                    i--;
+                }
             }
         }
     }

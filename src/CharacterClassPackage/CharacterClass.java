@@ -12,6 +12,7 @@ public abstract class CharacterClass implements ICharacter {
     private AttackType attackType;
     private String name;
     private int maxHealth;
+    boolean isDeath = false;
 
     public int getHealth() {
         return health;
@@ -72,6 +73,14 @@ public abstract class CharacterClass implements ICharacter {
 
     public void setMaxHealth(int maxHealth) {
         this.maxHealth = maxHealth;
+    }
+
+    public boolean isDeath() {
+        return isDeath;
+    }
+
+    public void setDeath(boolean death) {
+        isDeath = death;
     }
 
     @Override
